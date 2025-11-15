@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  /* ====== FONT ====== */
+  /*background*/
+  --bg-primary: #f9feff;
+  /*UI element (button, input)*/
+  --bg-ui: #e1f6fd;
+  --ui-hover: #d1f0fa;
+  --ui-active: #bee7f5;
+  --ui-border: #8dcae3;
+  --ui-border-hover: #60b3d7;
+  /*btn*/
+  --btn-primary: #7ce2fe;
+  --btn-hover: #74daf8;
+  /*font*/
+  --high-contrast-text: #1d3e56;
+  --low-contrast-text: #00749e;
+  --neutral: white;
+
+  /*====== TYPO ======*/
+  --text-body: "Inter", sans-serif;
+  --text-heading: "Poppins", sans-serif;
+  --text-size: 1.125rem;
+  --text-lg: 1.5rem; /*24px*/
+  --text-xl: 1.875rem; /*30px*/
+  --text-2xl: 2.25rem; /*36px*/
+  --text-3xl: 3rem; /*48px*/
+  --text-4xl: 3.75rem; /*60px*/
+  --fw-bold: 700;
+}
+
+/*====== HEADER ======*/
+nav {
+  width: 100%;
+  height: 54px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  color: var(--neutral);
+  justify-content: space-between;
+  padding: 10px;
+  background-color: var(--high-contrast-text);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  font-size: var(--text-body);
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background-color: var(--ui-hover);
+  transition: width 300ms ease;
+}
+
+nav ul li:hover::before {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  height: calc(100vh - 54px);
+  background-color: var(--bg-primary);
+}
+
+.hero-section {
+  width: 100%;
+  height: 100vh;
+  background-image: url(assets/images/forest.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInUp 2s ease;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+.hero {
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+h1 {
+  font-size: var(--text-4xl);
+  color: var(--neutral);
+  font-weight: var(--fw-bold);
+}
+.presentation {
+  z-index: 100;
+}
+.hero p {
+  color: var(--high-contrast-text);
+  font-size: var(--text-2xl);
+  text-align: center;
+  font-weight: var(--fw-bold);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
