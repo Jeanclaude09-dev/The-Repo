@@ -95,7 +95,6 @@ nav ul li:hover::before {
 
 main {
   width: 100%;
-  height: auto;
   background-color: var(--bg-primary);
 }
 
